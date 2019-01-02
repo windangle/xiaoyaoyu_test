@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{# 页面标题 #}
+{% block title %}
+    |博客
+{% endblock %}
+
+{# 导航条激活状态 #}
+{% block nav_blog_active %}"active"{% endblock %}
+
+{# 页面内容 #}
+{% block content %}
+    <p><h3>博客列表 (共{{ blogs|length }}篇)</h3></p>
+    <table border="1">
+        <tr>
+            <th>标题</th>
+            <th>作者</th>
+            <th>摘要</th>
+            <th>分类</th>
+            <th>最后修改时间</th>
+        </tr>
+        {% for blog in blogs %}
+            <tr>
+                <td><a href="{% url 'blog_detail' blog.pk %}">{{ blog.title }}</a></td>
+                <td>{{ blog.author }}</td>
+                <td>{{ blog.content|truncatechars:16 }}</td>
+                <td><a href="{% url 'blog_with_type' blog.blog_type.type_e_name %}">{{ blog.blog_type.pk }}:{{ blog.blog_type.type_name }}</a></td>
+                <td>{{ blog.last_updated_time }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

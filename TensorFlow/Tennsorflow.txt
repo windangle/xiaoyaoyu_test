@@ -1,0 +1,10 @@
+莫烦Python
+https://morvanzhou.github.io/tutorials/machine-learning/tensorflow/
+
+机器学习速成课程(Google出品)
+https://developers.google.cn/machine-learning/crash-course/?hl=zh-cn
+https://developers.google.cn/machine-learning/crash-course/prereqs-and-prework?hl=zh-cn
+
+Anaconda3-5.1.0-Windows-x86_64.exe
+https://www.anaconda.com/download/#windows
+https://repo.continuum.io/archive/Anaconda3-5.1.0-Windows-x86_64.exe

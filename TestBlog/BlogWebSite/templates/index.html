@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{# 页面标题 #}
+{% block title %}
+    
+{% endblock %}
+
+{# CSS #}
+{% block header_extends %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home.css' %}">
+{% endblock %}
+
+{# 导航条激活状态 #}
+{% block nav_home_active %}"active"{% endblock %}
+
+{# 页面内容 #}
+{% block content %}
+    <div class="test_css">
+        <h2 class="home-content">欢迎光临我的博客</h2>
+    </div>
+{% endblock %}

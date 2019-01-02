@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{# 页面标题 #}
+{% block title %}
+    |{{ blog.title }}
+{% endblock %}
+
+{# 导航条激活状态 #}
+{% block nav_blog_active %}"active"{% endblock %}
+
+{# 页面内容 #}
+{% block content %}
+    <h2> {{ blog.title }} </h2>
+    <p>分类:<a href="{% url 'blog_with_type' blog.blog_type.type_e_name %}">{{ blog.blog_type }}</a></p>
+    <p>作者：{{ blog.author }}</p>
+    <p>发表时间：{{ blog.created_time|date:"Y-m-d"}}</p>
+    <p> {{ blog.content }} </p>
+{% endblock %}
