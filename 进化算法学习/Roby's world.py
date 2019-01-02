@@ -9,7 +9,6 @@
 4、罗比成功捡到1个罐子得10分，在没有罐子的格子里捡罐子扣1分，撞墙扣5分并回到撞墙前得位置。
 5、每一次执行任务只能执行200次操作。
 请帮助他设计一套算法，让他能够得到尽量高的分。
-
 使用进化算法，分数据初始化，捡罐子算法，基因遗传，数据持久化4大部分。
 ''' 
 import random
@@ -34,23 +33,31 @@ def initialize_board():
             board[y] = JAR_GRID
             x += 1
     return board
+
 # 初始化基因组
 def initialize_dna():
     # 用字典存储dna，用key代表具体的基因，用value表示基因的序列。
     # 基因由5个字母的字符串组成，每一位分别表示东南西北中的方位，而其中的字母e代表空，j代表罐子，w代表墙。
     # 基因有由1种组成、有2种基因组成、3种基因组成三种情况。1种基因的情况只有3种，因此定义时直接给出。
-    dna = { "eeeee":0,"jjjjj":0,"wwwww":0 } 
-    dna.update(sequence_2dna(dna, "eeeee", "j", 0, 5))
-    dna.update(sequence_2dna(dna, "eeeee", "w", 0, 5))
-    dna.update(sequence_2dna(dna, "jjjjj", "w", 0, 5))
+    COUNT = 5 # 表示基因的位数
+    result = item = ["b", "j", "w"] # 定义基因的组成元素
+    temp = []
+    for x in range(1, COUNT):
+        for y in range(0, len(result)):
+            for z in range(0, len(item)):
+                temp.append(result[y] + item[z])
+        result = temp
+        temp = []
+    return result
 
-def sequence_2dna(dict_dna, str_dic, item_dic, s_num, e_num):    
-    for x in range(s_num, e_num):
-        if x == 0:
-            str_dic_x = item_dic + str_dic[1:e_num]
-        else:
-            str_dic_x = str_dic[0:x] + item_dic + str_dic[x+1:e_num]
-        dict_dna[str_dic_x] = 0
-        if s_num < e_num:
-            dict_dna.update(sequence_dna(dict_dna, str_dic_x, item_dic, s_num+1, e_num))
-    return dict_dna
+# 捡罐子
+def pick_jar(pick_dna, pick_times): # pick_dna，传入基因组；pick times，传入一次捡罐子任务的操作次数。
+    roby = 0
+    for x in range(0, pick_times):
+        action = pick_dna[look_around()] # 看周围的情况决定行动
+        if action == 1:
+
+
+
+#看周围情况
+def look_around();
