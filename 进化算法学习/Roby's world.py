@@ -196,7 +196,7 @@ txt_obj.close()
 # 执行任务，每种基因执行dna_times次，每轮执行dna_count个dna轮回，执行sum_times次轮回，每一种基因每次执行opertion_times步操作，而所有基因存在dna_dic中
 dna_times = 10  # 每一种基因执行dna_times次
 dna_count = 20  # 每一轮中使用dna_count种基因组
-sum_times = 59999  # 执行sum_times轮
+sum_times = 999999  # 执行sum_times轮
 opertion_times = 100  # 每一种基因每次执行opertion_times步操作
 dna_dic = {}
 # result_list = []
